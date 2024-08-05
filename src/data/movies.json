@@ -3,13 +3,285 @@
       "id": 1,
       "title": "The Passion of the Christ",
       "description": "A depiction of the last 12 hours in the life of Jesus of Nazareth.",
-      "url": "https://www.example.com/video1.mp4"
+      "category": "sacrifice",
+      "recommended": true,
+      "url": "https://archive.org/details/Teluguuploads-ThePassionOfChrist563",
+      "poster": "https://worshipleader.com/wp-content/uploads/2024/02/The-Passion-of-the-Christ.jpeg"
     },
     {
       "id": 2,
       "title": "God's Not Dead",
+      "category": "goodness",
+      "recommended": true,
       "description": "A Christian student defends his faith and debates a philosophy professor.",
-      "url": "https://www.example.com/video2.mp4"
+      "url": "https://www.youtube.com/watch?v=0Ek2LEoSut0",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/c/cf/God%27s_Not_Dead.jpg"
+    },
+    {
+      "id": 3,
+      "title": "War Room",
+      "category": "faith",
+    
+      "description": "A seemingly perfect family looks to fix their problems with the help of Miss Clara, an older, wiser woman.",
+      "url": "https://www.youtube.com/watch?v=yx5kpJ5mkeE",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/a/a7/WarRoomMoviePoster.jpg"
     }
-  ]
+    ,
+    {
+      "id": 4,
+      "title": "ABATTOIR",
+      "category": "goodness",
+      "recommended": true,
+      "description": "A new rising of the dawn in the power of God over occultic and evil powers.",
+      "url": "https://www.youtube.com/watch?v=bWPy8OLMbFM&list=PL8mUP_K_Ak4DeQ60LI5uWj8NJ7k9OgFkc",
+      "poster": "https://witnessgospelreviews.movie.blog/wp-content/uploads/2020/07/abattoir-.jpg?w=720"
+    }
+    ,
+    {
+      "id": 5,
+      "title": "The Prince of Egypt",
+      "category": "blessing",
+      "recommended": true,
+      "description": "Young Joseph is a dreamer, indulged by his father and resented by his older brothers who soon sell him into slavery without their father's knowledge.",
+      "url": "https://www.youtube.com/watch?v=Aqk-5gvyHCM",
+      "poster": "https://m.media-amazon.com/images/S/pv-target-images/bf1001d3428fa696582bd632ca1764ecebd60d38c20372bb626aa22d8b483df7.jpg"
+    },
+    {
+      "id": 6,
+      "title": "I Am Gabriel",
+      "category": "faith",
+      "recommended": true,
+      "description": "An angel comes to a small town to restore faith.",
+      "url": "https://www.youtube.com/watch?v=r-5_TrtuqHc",
+      "poster": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p9388527_p_v8_aa.jpg"
+  },
+  {
+      "id": 7,
+      "title": "Fireproof",
+      "category": "love",
+      "recommended": true,
+      "description": "A firefighter uses a 40-day experiment to save his marriage.",
+      "url": "https://www.youtube.com/watch?v=84q0SXW781c",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/b/b7/Fireproof_poster.jpg"
+  },
+  {
+      "id": 8,
+      "title": "The Case for Christ",
+      "category": "faith",
+      "recommended": true,
+      "description": "An investigative journalist and self-proclaimed atheist sets out to disprove the existence of God after his wife becomes a Christian.",
+      "url": "https://www.youtube.com/watch?v=RiU84-ooGAU",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/c/cc/The_Case_for_Christ_poster.jpg"
+  },
+  {
+      "id": 9,
+      "title": "Heaven is for Real",
+      "category": "faith",
+      "recommended": true,
+      "description": "A young boy claims to have visited heaven during a near death experience.",
+      "url": "https://www.youtube.com/watch?v=2dqXLuYPizs",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/b/b8/Heavenisforrealtheaterposter.jpg"
+  },
+  {
+      "id": 10,
+      "title": "The Shack",
+      "category": "forgiveness",
+      "recommended": true,
+      "description": "A grieving man receives a mysterious, personal invitation to meet with God at a place called 'The Shack'.",
+      "url": "https://www.youtube.com/watch?v=-ZecJ7GhmyE",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/7/70/The_Shack_%28film%29.jpg"
+  },
+  {
+      "id": 11,
+      "title": "Facing the Giants",
+      "category": "faith",
+      "recommended": true,
+      "description": "A high school football coach uses his undying faith to battle the giants of fear and failure.",
+      "url": "https://www.youtube.com/watch?v=4GAMs9mUHFc",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/7/7c/Facing_the_giants.jpg"
+  },
+  {
+      "id": 12,
+      "title": "Courageous",
+      "category": "faith",
+      "recommended": true,
+      "description": "Four men with one calling: To serve and protect.",
+      "url": "https://www.youtube.com/watch?v=1mIBHNysDIo",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/3/3b/Courageous_Cover.JPG"
+  },
+  {
+      "id": 13,
+      "title": "Risen",
+      "category": "resurrection",
+      "recommended": true,
+      "description": "A Roman soldier witnesses the resurrection of Jesus Christ.",
+      "url": "https://www.youtube.com/watch?v=OcTVLfn5i8g",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/3/3c/Risen_2016_poster.jpg"
+  },
+  {
+      "id": 14,
+      "title": "Unplanned",
+      "category": "pro-life",
+      "recommended": true,
+      "description": "The true story of a clinic director who turns pro-life.",
+      "url": "https://www.youtube.com/watch?v=FCngXrejxf0",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/9/99/Unplanned_promotional_poster.png"
+  },
+  {
+      "id": 15,
+      "title": "The Book of Eli",
+      "category": "faith",
+      "recommended": true,
+      "description": "A lone warrior defends a sacred book in a post-apocalyptic world.",
+      "url": "https://www.youtube.com/watch?v=zSMHmtaoXtI",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/e/e3/Book_of_eli_poster.jpg"
+  },
+  {
+      "id": 16,
+      "title": "Son of God",
+      "category": "life of Jesus",
+      "recommended": true,
+      "description": "The life story of Jesus is told from his humble birth through his teachings, crucifixion and ultimate resurrection.",
+      "url": "https://www.youtube.com/watch?v=-Hsl5UG9O_c",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/a/ae/Son_of_God_film_poster.jpg"
+  },
+  {
+      "id": 17,
+      "title": "The Gospel of John",
+      "category": "life of Jesus",
+      "recommended": true,
+      "description": "The life and toils of Jesus Christ, depicted as written in the Gospel of John.",
+      "url": "https://www.youtube.com/watch?v=-k0D_qFPb4o",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/4/4b/The_Gospel_of_John.jpg"
+  },
+  {
+      "id": 18,
+      "title": "Miracles from Heaven",
+      "category": "faith",
+      "recommended": true,
+      "description": "A young girl suffering from a rare digestive disorder finds herself miraculously cured after surviving a terrible accident.",
+      "url": "https://www.youtube.com/watch?v=CldGTG6iVrU",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/6/62/Miracles_from_Heaven_poster.jpg"
+  },
+  {
+      "id": 19,
+      "title": "Breakthrough",
+      "category": "faith",
+      "recommended": true,
+      "description": "When her 14-year-old son drowns in a lake, a mother prays for him to come back from the brink of death and be healed.",
+      "url": "https://www.youtube.com/watch?v=go1jaIRQc-o",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/e/ea/Breakthrough_%282019_film%29.png"
+  },
+ 
+  {
+      "id": 20,
+      "title": "Do You Believe?",
+      "category": "faith",
+      "recommended": true,
+      "description": "When a pastor is shaken by the visible faith of a street-corner preacher, he is reminded that true belief always requires action.",
+      "url": "https://www.youtube.com/watch?v=hPSi9b7wKA8",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/6/63/Do_You_Believe%3F_film.jpg"
+  },
+  {
+      "id": 21,
+      "title": "Faith Like Potatoes",
+      "category": "faith",
+      "recommended": true,
+      "description": "Based on the true story of a South African farmer who turns his life around after finding faith.",
+      "url": "https://www.youtube.com/watch?v=bG4ZrhXhC0I",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/8/8d/Faith_Like_Potatoes.jpg"
+  },
+  {
+      "id": 22,
+      "title": "Paul, Apostle of Christ",
+      "category": "life of Paul",
+      "recommended": true,
+      "description": "The story of Paul, who was known as a ruthless persecutor of Christians before his conversion to Christianity.",
+      "url": "https://www.youtube.com/watch?v=LyOqQZUDdO4",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/d/d3/Paul%2C_Apostle_of_Christ_poster.jpg"
+  },
+  {
+      "id": 23,
+      "title": "Samson",
+      "category": "strength",
+      "recommended": true,
+      "description": "After losing the love of his life to a cruel Philistine prince, a young Hebrew with Supernatural strength defends his people.",
+      "url": "https://www.youtube.com/watch?v=EQPBxACnZa4",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/3/36/SamsonPoster.jpeg"
+  },
+  {
+      "id": 24,
+      "title": "Soul Surfer",
+      "category": "inspiration",
+      "recommended": true,
+      "description": "The true story of surfer Bethany Hamilton, who lost her arm in a shark attack but continued to surf.",
+      "url": "https://www.youtube.com/watch?v=7eepnV7tInI",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/1/1d/Soul_Surfer_Poster.jpg"
+  },
+  {
+      "id": 25,
+      "title": "Woodlawn",
+      "category": "faith",
+      "recommended": true,
+      "description": "A high school football team finds faith and unity amidst racial tensions in the 1970s.",
+      "url": "https://www.youtube.com/watch?v=jfHDiE6Tu5w",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/f/f8/WoodlawnMoviePoster.jpg"
+  },
+  {
+      "id": 26,
+      "title": "Ben-Hur",
+      "category": "epic",
+      "recommended": true,
+      "description": "A Jewish prince is betrayed and sent into slavery by a Roman friend, but regains his freedom and comes back for revenge.",
+      "url": "https://www.youtube.com/watch?v=3BmeR9GYdDU",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/7/74/Ben_hur_1959_poster.jpg"
+  },
+  {
+      "id": 27,
+      "title": "The Nativity Story",
+      "category": "life of Jesus",
+      "recommended": true,
+      "description": "A drama that focuses on the period in Mary and Joseph's life where they journeyed to Bethlehem for the birth of Jesus.",
+      "url": "https://www.youtube.com/watch?v=3yOIUlECqPY",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/f/f0/The_Nativity_Story.jpg"
+  },
+  {
+      "id": 28,
+      "title": "The Encounter",
+      "category": "faith",
+      "recommended": true,
+      "description": "Five strangers with nothing in common are forced to come together at a remote roadside eatery because of a road closure.",
+      "url": "https://www.youtube.com/watch?v=2JtWJQWb3l0",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/c/c5/The_Encounter_%282011_film%29_poster.jpg"
+  },
+  {
+      "id": 29,
+      "title": "Letters to God",
+      "category": "goodness",
+      "recommended": true,
+      "description": "A young boy fighting cancer writes letters to God, touching lives in his neighborhood and community.",
+      "url": "https://www.youtube.com/watch?v=nZsArKn0W0c",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/2/29/Letters_to_God_poster.jpg"
+  },
+  {
+      "id": 30,
+      "title": "The Ultimate Gift",
+      "category": "faith",
+      "recommended": true,
+      "description": "A deceased billionaire leaves his spoiled adult grandson a series of odd tasks to perform in order to receive 'the ultimate gift,' with the resentful young man having no idea what that might be.",
+      "url": "https://www.youtube.com/watch?v=Yl9MrE7q7ak",
+      "poster": "https://upload.wikimedia.org/wikipedia/en/d/d8/Theatrical_poster_of_film%2C_The_Ultimate_Gift%2C_2007.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Let Go and Let God",
+    "category": "goodness",
+    "recommended": true,
+    "description": "Two people from vastly different worlds whose lives are rocked after experiencing sudden deaths in their family. They question God as a result, but find the faith they're looking for on an unexpected path.",
+    "url": "https://www.youtube.com/watch?v=F8IPzpcuPGs",
+    "poster": "https://m.media-amazon.com/images/M/MV5BOGU3YjkwZjctMzY4Yi00NDY4LTkwOWUtMWQyM2NiM2ZhNzZmXkEyXkFqcGdeQXVyNTcwNTgzNjM@._V1_.jpg"
+  }
+]
+    
+
   

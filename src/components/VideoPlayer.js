@@ -1,12 +1,32 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
+import PropTypes from 'prop-types';
+
+const getEmbedUrl = (url) => {
+  const urlObj = new URL(url);
+  const videoId = urlObj.searchParams.get('v');
+  return `https://www.youtube.com/embed/${videoId}`;
+};
 
 const VideoPlayer = ({ url }) => {
+  const embedUrl = getEmbedUrl(url);
+
   return (
-    <div className='player-wrapper'>
-      <ReactPlayer className='react-player' url={url} controls />
+    <div className="video-player">
+      <iframe
+        width="100%"
+        height="480"
+        src={embedUrl}
+        title="Movie Player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </div>
   );
+};
+
+VideoPlayer.propTypes = {
+  url: PropTypes.string.isRequired,
 };
 
 export default VideoPlayer;
