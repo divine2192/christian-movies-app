@@ -1,29 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserContext } from '../contexts/UserContext';
-import { useNavigate } from 'react-router-dom';
 
-const LoginContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #f0f2f5;
-  font-family: 'Poppins', sans-serif;
-`;
-
-const LoginForm = styled.form`
+const Container = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
   background: #fff;
-  padding: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  margin-bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -41,67 +27,48 @@ const Button = styled.button`
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
-  width: 100%;
+  margin-top: 10px;
 
   &:hover {
     background: #0C0220;
   }
 `;
 
-const ErrorMessage = styled.p`
-  color: red;
-`;
-
 const Login = () => {
-  const { login } = useContext(UserContext);
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [profileImage, setProfileImage] = useState(null);
-  const [error, setError] = useState('');
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    if (username === '' || password === '') {
-      setError('Both fields are required.');
-    } else {
-      const userData = { username, profileImage };
-      login(userData);
-      navigate('/');
-    }
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setProfileImage(reader.result);
-    };
-    reader.readAsDataURL(file);
+    // Replace with actual login logic and API call
+    const userData = { email, profileImage: 'https://via.placeholder.com/100' };
+    login(userData);
+    navigate('/');
   };
 
   return (
-    <LoginContainer>
-      <LoginForm onSubmit={handleSubmit}>
-        <Title>Login</Title>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Input 
-          type="text" 
-          placeholder="Username" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
+    <Container>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <Input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
         />
-        <Input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
+        <Input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          required
         />
-       
         <Button type="submit">Login</Button>
-      </LoginForm>
-    </LoginContainer>
+      </form>
+    </Container>
   );
 };
 

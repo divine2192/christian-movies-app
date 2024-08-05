@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
+import { UserContext } from '../contexts/UserContext.js';
 import styled from 'styled-components';
 
 const SignupContainer = styled.div`

@@ -52,7 +52,7 @@ const FavoriteMovie = styled.div`
 `;
 
 const UserProfile = () => {
-  const { user, logout, updateProfileImage } = useContext(UserContext);
+  const { user, logout, updateProfileImage, favorites } = useContext(UserContext);
   const [newProfileImage, setNewProfileImage] = useState(null);
   const navigate = useNavigate();
 
@@ -83,8 +83,8 @@ const UserProfile = () => {
       <Button onClick={handleLogout}>Logout</Button>
       <FavoriteMovies>
         <h3>Favorite Movies</h3>
-        {user.favorites && user.favorites.length > 0 ? (
-          user.favorites.map((movie, index) => (
+        {favorites && favorites.length > 0 ? (
+          favorites.map((movie, index) => (
             <FavoriteMovie key={index}>{movie.title}</FavoriteMovie>
           ))
         ) : (
