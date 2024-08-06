@@ -1,26 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { UserProvider } from './contexts/UserContext';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import MovieGrid from './components/MovieGrid';
+import MovieDetail from './components/MovieDetail';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile';
-import MovieDetail from './components/MovieDetail';
+import { UserProvider } from './contexts/UserContext';
 import './App.css';
-import MovieList from './MovieList';
 
 const App = () => {
   return (
     <UserProvider>
       <Router>
         <Header />
-        <MovieList />
         <Routes>
           <Route path="/" element={<MovieGrid />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/movie/:id" element={<MovieDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
+        <Footer />
       </Router>
     </UserProvider>
   );
