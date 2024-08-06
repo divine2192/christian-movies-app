@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { UserContext } from '../contexts/UserContext';
+import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const ProfileContainer = styled.div`
@@ -52,9 +52,11 @@ const FavoriteMovie = styled.div`
 `;
 
 const UserProfile = () => {
-  const { user, logout, updateProfileImage, favorites } = useContext(UserContext);
+  const { user, logout, updateProfileImage, favorites } = useAuth(useAuth);
   const [newProfileImage, setNewProfileImage] = useState(null);
   const navigate = useNavigate();
+
+
 
   const handleLogout = () => {
     logout();

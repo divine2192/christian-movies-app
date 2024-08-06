@@ -1,77 +1,57 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Container = styled.div`
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-`;
-
-const Button = styled.button`
-  background: #BB2CD9;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-
-  &:hover {
-    background: #0C0220;
-  }
-`;
+import React, { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext'; // Correct import
 
 const Login = () => {
+  const { login } = useAuth(); // Use the login function from AuthContext
   const [credentials, setCredentials] = useState({ username: '', password: '' });
-  const { login } = useContext(UserContext);
-  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials((prev) => ({ ...prev, [name]: value }));
+  // Handler for form submission
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent default form behavior
+    const { username, password } = credentials;
+    if (username && password) {
+      // Perform login (you might want to validate or call an API here)
+      login({ username, profileImage: 'https://via.placeholder.com/100' }); // Example user data
+    }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await login(credentials);
-    navigate('/');
+  // Handler for input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: value,
+    }));
   };
 
   return (
-    <Container>
-      <h2>Login</h2>
+    <div>
       <form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={credentials.username}
-          onChange={handleChange}
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-        <Button type="submit">Login</Button>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            value={credentials.username}
+            onChange={handleChange}
+            placeholder="Username"
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            value={credentials.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit">Login</button>
       </form>
-    </Container>
+    </div>
   );
 };
 

@@ -1,57 +1,53 @@
 import React, { useEffect, useState } from 'react';
+import moviesData from '../data/movies.json';
+import MovieCard from './MovieCard';
+import SearchBar from './SearchBar';
+import CategoryFilter from './CategoryFilter';
 import styled from 'styled-components';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+`;
+
+const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-`;
-
-const MovieCard = styled.div`
-  width: 200px;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const MovieImage = styled.img`
-  width: 100%;
-  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const MovieGrid = () => {
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const categories = Array.from(new Set(moviesData.map(movie => movie.category)));
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get('https://api.christian-movie-api.com/movies'); // Replace with your API endpoint
-        setMovies(response.data);
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
-    };
-
-    fetchMovies();
+    setMovies(moviesData);
   }, []);
 
+  const filteredMovies = movies.filter(movie => {
+    const matchesSearch = movie.title.toLowerCase().includes(query.toLowerCase());
+    const matchesCategory = selectedCategory ? movie.category === selectedCategory : true;
+    return matchesSearch && matchesCategory;
+  });
+
   return (
-    <Grid>
-      {movies.map((movie) => (
-        <MovieCard key={movie.id}>
-          <Link to={`/movie/${movie.id}`}>
-            <MovieImage src={movie.imageUrl} alt={movie.title} />
-            <h3>{movie.title}</h3>
-          </Link>
-        </MovieCard>
-      ))}
-    </Grid>
+    <Container>
+      <SearchBar query={query} setQuery={setQuery} />
+      <CategoryFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
+      <Grid>
+        {filteredMovies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </Grid>
+    </Container>
   );
 };
 

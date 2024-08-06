@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../contexts/UserContext';
+import { useAuth } from '../contexts/AuthContext'; // Correct import
 
 const HeaderContainer = styled.header`
-  background: #333;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -38,10 +37,7 @@ const NavLink = styled(Link)`
 `;
 
 const SubscribeButton = styled(Link)`
-  background: #BB2CD9;
   color: #fff;
-  border: none;
-  border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
@@ -60,8 +56,8 @@ const ProfileImage = styled.img`
 `;
 
 const Header = () => {
-  const { user } = useContext(UserContext);
-
+  const { user, logout } = useAuth(); // Correct usage of useAuth
+  
   return (
     <HeaderContainer>
       <Logo>
@@ -69,21 +65,7 @@ const Header = () => {
           <LogoImage src="https://i.ibb.co/p0LBwct/logo.png" alt="Designer" />
         </Link>
       </Logo>
-      <Nav>
-        {user ? (
-          <>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/profile">My Account</NavLink>
-            {user.profileImage ? (
-              <ProfileImage src={user.profileImage} alt="Profile" />
-            ) : (
-              <ProfileImage src="https://via.placeholder.com/100" alt="Profile" />
-            )}
-          </>
-        ) : (
-          <SubscribeButton to="/login">Login</SubscribeButton>
-        )}
-      </Nav>
+     
     </HeaderContainer>
   );
 };

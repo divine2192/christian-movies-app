@@ -6,12 +6,12 @@ import MovieGrid from './components/MovieGrid';
 import MovieDetail from './components/MovieDetail';
 import Login from './components/Login';
 import UserProfile from './components/UserProfile';
-import { UserProvider } from './contexts/UserContext';
+import { AuthProvider } from './contexts/AuthContext';
 import './App.css';
 
 const App = () => {
   return (
-    <UserProvider>
+    <AuthProvider>
       <Router>
         <Header />
         <Routes>
@@ -22,7 +22,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
-    </UserProvider>
+    </AuthProvider>
   );
 };
 

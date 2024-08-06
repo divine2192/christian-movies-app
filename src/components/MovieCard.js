@@ -10,12 +10,26 @@ const Card = styled.div`
   text-align: center;
 `;
 
+const Button = styled.button`
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #0C0220;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0C0220;
+  }
+`;
+
 const MovieCard = ({ movie }) => {
   return (
     <Card>
       <h3>{movie.title}</h3>
       <img src={movie.poster} alt={movie.title} style={{ width: '100%' }} />
-      <Link to={`/movie/${movie.id}`}>Details</Link>
+      <Link to={`/movie/${movie.id}`}><Button>VIEW</Button></Link>
+      
     </Card>
   );
 };
