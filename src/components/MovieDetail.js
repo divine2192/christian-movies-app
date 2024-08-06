@@ -1,51 +1,67 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
-import { UserContext } from '../contexts/UserContext';
-import CommentSection from './CommentSection';
 
-const DetailContainer = styled.div`
-  padding: 20px;
-`;
+
+const API_KEY = '118b1c420c2bc95d0bfc97ea309cc9e6'; // Replace with your actual TMDb API key
+const BASE_URL = 'https://api.themoviedb.org/3';
 
 const MovieDetail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
-  const { user, addFavorite, removeFavorite, favorites } = useContext(UserContext);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`https://api.christian-movie-api.com/movies/${id}`)
-      .then(response => setMovie(response.data))
-      .catch(error => console.error('Error fetching movie:', error));
+    const fetchMovie = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/movie/${id}`, {
+          params: {
+            api_key: API_KEY,
+            language: 'en-US',
+          },
+        });
+        setMovie(response.data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchMovie();
   }, [id]);
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   if (!movie) {
     return <div>Loading...</div>;
   }
 
-  const isFavorite = favorites.some(favorite => favorite.id === movie.id);
-
-  const handleFavorite = () => {
-    if (isFavorite) {
-      removeFavorite(movie.id);
-    } else {
-      addFavorite(movie);
-    }
-  };
-
   return (
-    <DetailContainer>
-      <h1>{movie.title}</h1>
-      <img src={movie.poster} alt={movie.title} style={{ width: '100%' }} />
-      <p>{movie.description}</p>
-      {user && (
-        <button onClick={handleFavorite}>
-          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
-        </button>
-      )}
-      <CommentSection movieId={id} />
-    </DetailContainer>
+    <div className="movie-detail">
+      <img
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title}
+        className="movie-poster"
+      />
+      <div className="movie-info">
+        <h1>{movie.title}</h1>
+        <p>{movie.overview}</p>
+        <p>Release Date: {movie.release_date}</p>
+        <h2>Trailer</h2>
+        <div className="trailer">
+          <iframe
+            title="trailer"
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed?listType=search&list=${movie.title} trailer`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { UserContext } from '../contexts/UserContext';
 
 const Container = styled.div`
   max-width: 400px;
@@ -27,6 +27,7 @@ const Button = styled.button`
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  font-size: 16px;
   margin-top: 10px;
 
   &:hover {
@@ -35,36 +36,38 @@ const Button = styled.button`
 `;
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [credentials, setCredentials] = useState({ username: '', password: '' });
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Replace with actual login logic and API call
-    const userData = { email, profileImage: 'https://via.placeholder.com/100' };
-    login(userData);
+    await login(credentials);
     navigate('/');
   };
 
   return (
     <Container>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSubmit}>
         <Input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={credentials.username}
+          onChange={handleChange}
         />
         <Input
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
           placeholder="Password"
-          required
+          value={credentials.password}
+          onChange={handleChange}
         />
         <Button type="submit">Login</Button>
       </form>

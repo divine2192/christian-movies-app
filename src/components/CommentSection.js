@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { UserContext } from '../contexts/UserContext';
 
 const CommentsContainer = styled.div`
   margin-top: 20px;
@@ -40,19 +41,30 @@ const Button = styled.button`
 const CommentSection = ({ movieId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-    axios.get(`https://api.christian-movie-api.com/movies/${movieId}/comments`)
-      .then(response => setComments(response.data))
-      .catch(error => console.error('Error fetching comments:', error));
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get(`https://api.christian-movie-api.com/movies/${movieId}/comments`); // Replace with your API endpoint
+        setComments(response.data);
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+      }
+    };
+
+    fetchComments();
   }, [movieId]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post(`https://api.christian-movie-api.com/movies/${movieId}/comments`, { text: newComment })
-      .then(response => setComments([...comments, response.data]))
-      .catch(error => console.error('Error posting comment:', error));
-    setNewComment('');
+    try {
+      const response = await axios.post(`https://api.christian-movie-api.com/movies/${movieId}/comments`, { text: newComment }); // Replace with your API endpoint
+      setComments([...comments, response.data]);
+      setNewComment('');
+    } catch (error) {
+      console.error('Error posting comment:', error);
+    }
   };
 
   return (
@@ -63,14 +75,16 @@ const CommentSection = ({ movieId }) => {
           <p>{comment.text}</p>
         </Comment>
       ))}
-      <CommentForm onSubmit={handleSubmit}>
-        <Textarea
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-          placeholder="Add a comment"
-        />
-        <Button type="submit">Submit</Button>
-      </CommentForm>
+      {user && (
+        <CommentForm onSubmit={handleSubmit}>
+          <Textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="Add a comment"
+          />
+          <Button type="submit">Submit</Button>
+        </CommentForm>
+      )}
     </CommentsContainer>
   );
 };

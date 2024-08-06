@@ -7,12 +7,14 @@ import Login from './components/Login';
 import UserProfile from './components/UserProfile';
 import MovieDetail from './components/MovieDetail';
 import './App.css';
+import MovieList from './MovieList';
 
 const App = () => {
   return (
     <UserProvider>
       <Router>
         <Header />
+        <MovieList />
         <Routes>
           <Route path="/" element={<MovieGrid />} />
           <Route path="/profile" element={<UserProfile />} />
